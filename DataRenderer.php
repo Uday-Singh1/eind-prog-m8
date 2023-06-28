@@ -1,6 +1,8 @@
 <?php
 namespace Main;
 
+require __DIR__ . '/Twig/vendor/autoload.php';
+
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -10,7 +12,7 @@ class DataRenderer
 
     public function __construct($templateDirectory)
     {
-        $loader = new FilesystemLoader($templateDirectory);
+        $loader = new FilesystemLoader( __DIR__ . $templateDirectory);
         $this->twig = new Environment($loader);
     }
 

@@ -1,7 +1,10 @@
 <?php
 namespace Main;
+include "DataQuery.php";
+include "DataRenderer.php";
 
 use PDO;
+
 
 class DatabaseConnection
 {
@@ -31,5 +34,6 @@ $database = new DatabaseConnection('localhost', 'root', '', 'wordpress');
 $query = new DataQuery($database);
 $data = $query->getDataFromTable('wp_posts');
 
-$renderer = new DataRenderer('/templates');
-$renderer->render('template.twig', $data);
+
+
+$pdo = $database->getConnection();
